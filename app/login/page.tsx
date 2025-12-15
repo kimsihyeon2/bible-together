@@ -39,7 +39,7 @@ export default function LoginPage() {
                 }
                 const res = await signup(form.email, form.password, form.name, form.phone, form.cellCode);
                 if (res.success) {
-                    router.push("/cells");
+                    router.replace("/cells");
                 } else {
                     setError(res.message);
                 }
@@ -51,7 +51,7 @@ export default function LoginPage() {
                 }
                 const res = await login(form.email, form.password);
                 if (res.success) {
-                    router.push("/cells");
+                    router.replace("/cells");
                 } else {
                     setError(res.message);
                 }

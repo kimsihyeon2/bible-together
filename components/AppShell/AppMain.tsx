@@ -34,8 +34,8 @@ export function AppMain({ children }: { children: React.ReactNode }) {
 
     const navItems = [
         { label: "홈", icon: IconHome, id: "home", path: "/cells" },
-        { label: "Community", icon: IconFriends, id: "community", path: "/cells" }, // Placeholder
-        { label: "Admin", icon: IconUser, id: "admin", path: "/admin", show: me?.role === "PASTOR" },
+        { label: "셀 관리", icon: IconFriends, id: "leader", path: "/leader", show: me?.role === "LEADER" || me?.role === "PASTOR" },
+        { label: "관리자", icon: IconUser, id: "admin", path: "/admin", show: me?.role === "PASTOR" },
     ];
 
     return (
