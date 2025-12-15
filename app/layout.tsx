@@ -2,7 +2,7 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { theme } from "@/theme";
 import "@mantine/core/styles.css";
 import "@/app/globals.css"; // Keep Tailwind for utility classes if needed
-import { Geist, Geist_Mono, Noto_Serif_KR } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Serif_KR, Inter } from "next/font/google"; // [NEW] Added Inter
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -21,6 +21,13 @@ const notoSerifKr = Noto_Serif_KR({
   variable: "--font-noto-serif-kr",
 });
 
+// [NEW] Added Inter configuration
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata = {
   title: "Bible Together - 성경함께",
   description: "셀 공동체와 함께 성경을 읽고 기도 요청을 나누세요.",
@@ -37,7 +44,7 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#3B82F6"
+  themeColor: "#34C759" // [MODIFY] Updated to iOS Green
 };
 
 import { AppMain } from "@/components/AppShell/AppMain";
@@ -66,7 +73,8 @@ export default function RootLayout({
           geistSans.variable,
           geistMono.variable,
           notoSerifKr.variable,
-          "antialiased bg-background text-foreground"
+          inter.variable, // [NEW] Added Inter variable
+          "antialiased bg-background text-foreground font-sans" // [MODIFY] Added font-sans
         )}
       >
         <MantineProvider theme={theme} defaultColorScheme="auto">
