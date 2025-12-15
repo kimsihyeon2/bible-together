@@ -81,7 +81,7 @@ export default function AdminPage() {
 
     useEffect(() => {
         if (!me || me.role !== "PASTOR") {
-            // router.push("/cells"); // Removed strictly for demo purposes
+            router.push("/cells"); // Redirect non-admins
         }
     }, [me, router]);
 
