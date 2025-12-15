@@ -1,0 +1,27 @@
+[
+  {
+    "id": "TC001",
+    "title": "join_cell_with_valid_and_invalid_invite_codes",
+    "description": "Test the /api/cells/join POST endpoint to verify that valid invite codes allow users to join a cell successfully, while empty, whitespace, duplicate, or invalid invite codes return appropriate error messages."
+  },
+  {
+    "id": "TC002",
+    "title": "toggle_bible_translation_between_krv_and_easy",
+    "description": "Test the /api/translation PUT endpoint to ensure that switching between KRV and EASY translations updates the verse content and underline states correctly without errors."
+  },
+  {
+    "id": "TC003",
+    "title": "toggle_verse_underline_with_multi_user_support",
+    "description": "Test the /api/cells/{cellId}/underlines POST endpoint to verify that underlining a verse toggles correctly, supports multiple users distinctly, prevents duplicate underlines, and updates the state accordingly."
+  },
+  {
+    "id": "TC004",
+    "title": "cycle_theme_preference_light_dark_system",
+    "description": "Test the /api/theme PUT endpoint to confirm that the theme preference cycles through light, dark, and system modes, applies the correct CSS classes, detects OS preference for system mode, and updates the UI without hydration flash."
+  },
+  {
+    "id": "TC005",
+    "title": "load_todays_reading_plan_with_loading_ui",
+    "description": "Test the /api/cells/{cellId}/plan/today GET endpoint to ensure that today's reading plan loads asynchronously with a 500ms delay, displays a loading indicator during fetch, and returns the correct day index, title, passages, and verses based on the current translation."
+  }
+]

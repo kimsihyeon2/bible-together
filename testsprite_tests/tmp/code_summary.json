@@ -1,0 +1,35 @@
+{
+    "tech_stack": [
+        "TypeScript",
+        "Next.js",
+        "Supabase",
+        "Zustand",
+        "Mantine UI"
+    ],
+    "features": [
+        {
+            "name": "Authentication",
+            "description": "User login and signup using Supabase Auth. Includes email/password registration and profile creation.",
+            "files": [
+                "app/login/page.tsx",
+                "store/use-bible-store.ts"
+            ]
+        },
+        {
+            "name": "Cell Management",
+            "description": "View joined cells, join new cells via invite code, and view cell progress.",
+            "files": [
+                "app/cells/page.tsx",
+                "store/use-bible-store.ts"
+            ]
+        },
+        {
+            "name": "Bible Reading",
+            "description": "Read Bible verses, toggle underlines, and view today's reading plan.",
+            "files": [
+                "app/cells/[cellId]/page.tsx",
+                "store/use-bible-store.ts"
+            ]
+        }
+    ]
+}

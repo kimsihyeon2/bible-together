@@ -1,0 +1,398 @@
+[
+  {
+    "id": "TC001",
+    "title": "Join Cell with Valid Invite Code",
+    "description": "Verify that a user can join a cell group with a valid invite code, and receives a success response.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input a valid invite code in lowercase"
+      },
+      {
+        "type": "action",
+        "description": "Submit the invite code to the Cell Join API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the invite code is normalized to uppercase"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the API returns a success response indicating user joined the cell"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Join Cell with Empty Invite Code",
+    "description": "Verify that submitting an empty or whitespace-only invite code returns an appropriate error message.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input an empty invite code"
+      },
+      {
+        "type": "action",
+        "description": "Submit the invite code to the Cell Join API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error response indicates invite code cannot be blank"
+      },
+      {
+        "type": "action",
+        "description": "Input invite code with only whitespace characters"
+      },
+      {
+        "type": "action",
+        "description": "Submit the invite code to the Cell Join API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error response indicates invite code cannot be blank"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Join Cell with Duplicate Invite Code",
+    "description": "Verify that submitting a duplicate invite code returns an error indicating the user is already a member of the cell.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input a valid invite code that the user has already joined"
+      },
+      {
+        "type": "action",
+        "description": "Submit the invite code to the Cell Join API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error response indicates duplicate membership error"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Join Cell with Invalid Invite Code",
+    "description": "Verify that submitting an invalid invite code returns an appropriate error response.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Input an invalid or non-existent invite code"
+      },
+      {
+        "type": "action",
+        "description": "Submit the invite code to the Cell Join API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API returns an error indicating invalid invite code"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Toggle Translation from KRV to EASY",
+    "description": "Verify that toggling Bible translation from KRV to EASY updates Bible content and underlines accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Set initial translation to KRV"
+      },
+      {
+        "type": "action",
+        "description": "Toggle translation preference to EASY via the Translation Toggle API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify translation state is updated to EASY"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify displayed verses update to EASY translation content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline states are updated appropriately for the EASY translation"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Toggle Translation from EASY to KRV",
+    "description": "Verify that toggling Bible translation from EASY to KRV updates Bible content and underlines accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Set initial translation to EASY"
+      },
+      {
+        "type": "action",
+        "description": "Toggle translation preference to KRV via the Translation Toggle API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify translation state is updated to KRV"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify displayed verses update to KRV translation content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline states are updated appropriately for the KRV translation"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Toggle Verse Underline Add",
+    "description": "Verify that a user can add an underline to a verse and the underline is recorded correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a verse not currently underlined by the user"
+      },
+      {
+        "type": "action",
+        "description": "Send toggle underline request to Underline Toggle API"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline is added and reflected in UI"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline state stores userId distinctly with the verse"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Toggle Verse Underline Remove",
+    "description": "Verify that a user can remove an existing underline from a verse.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Select a verse currently underlined by the user"
+      },
+      {
+        "type": "action",
+        "description": "Send toggle underline request to Underline Toggle API to remove underline"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline is removed and UI updates accordingly"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Prevent Duplicate Underlines on Rapid Clicks",
+    "description": "Verify that rapid repeated toggles on a verse do not create duplicate underline entries.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Rapidly click the same verse multiple times to toggle underline"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline entries do not duplicate in the state"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Multi-user Underlines Stored Separately",
+    "description": "Verify that multiple users can underline the same verse and their underline state is tracked distinctly.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "User A underlines a verse"
+      },
+      {
+        "type": "action",
+        "description": "User B underlines the same verse"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underline states show distinct userIds under the same verse"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Local Storage State Persistence on Reload",
+    "description": "Verify that user state including user info, joined cells, underlines, and preferences persist correctly after page reload.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Set user state with joined cells, underline marks, selected translation and theme"
+      },
+      {
+        "type": "action",
+        "description": "Reload the application"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify local storage contains saved user state"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify application state is restored correctly from local storage"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Theme Toggle Cycle Through Modes",
+    "description": "Verify that the theme toggle cycles through 'light', 'dark', and 'system' preferences correctly and updates UI immediately.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Set theme to 'light' mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify document root does not have 'dark' class"
+      },
+      {
+        "type": "action",
+        "description": "Toggle theme to 'dark'"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify document root has 'dark' class applied"
+      },
+      {
+        "type": "action",
+        "description": "Toggle theme to 'system'"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify theme matches OS preference and document root class is updated accordingly"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "SSR Hydration Prevents UI Flash on Theme Change",
+    "description": "Verify that server-side rendering hydration manages theme changes smoothly without UI flash or incorrect initial theme display.",
+    "category": "ui",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Load the app on first render with theme preference in local storage or system"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no flash or flicker occurs showing wrong theme before hydration completes"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Today Plan Loads with Loading Indicator",
+    "description": "Verify that today's reading plan loads asynchronously with a 500ms delay, showing a loading UI during fetch, then displays the correct content based on current translation.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Request today's reading plan from the Today Plan API for a joined cell"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify loading indicator is displayed for at least 500ms"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the returned plan includes correct day index, title, passages, and verses"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify plan content matches the current Bible translation"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Translation Toggle Does Not Affect Underline State of Other Translations",
+    "description": "Verify that toggling translation only updates underline states relevant to the selected translation without affecting others.",
+    "category": "functional",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Underline a verse in the KRV translation"
+      },
+      {
+        "type": "action",
+        "description": "Toggle translation to EASY"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify underlines for KRV are hidden or distinct from EASY translation state"
+      },
+      {
+        "type": "action",
+        "description": "Underline a verse in the EASY translation"
+      },
+      {
+        "type": "action",
+        "description": "Toggle back to KRV translation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify previously underlined verses for KRV are restored without interference from EASY underlines"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Handle Large Data Storage Overflow Gracefully",
+    "description": "Verify that when local storage limit is exceeded due to large user state data, the system handles overflow gracefully without crashing or losing critical functionality.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate saving very large amount of user state data to local storage"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the app detects storage overflow condition"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is notified or fallback mechanism is triggered to avoid crash"
+      }
+    ]
+  }
+]

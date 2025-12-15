@@ -1,0 +1,16 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "bible_project",
+    "projectPath": "d:/bible_project",
+    "testIds": [],
+    "additionalInstruction": "Verify the explicit login and signup flow. Ensure email validation and error handling work correctly.",
+    "envs": {
+      "API_KEY": "sk-user-Vkuxn_PMKV5mW7M8wbHKPOwOg5hO4AlnbnCep0MsrBNBuK-p3_v_X6ocEvlmgmnQyMbhBt8T3ovq-0B2SESJF2K9kf0ISKUVuhcee0ySU6pgrU7aaj7bLdF_W3LlYtMTayY"
+    }
+  },
+  "proxy": "http://cb95ee63-3545-4014-9a8b-d8fa04021aba:eSAeyVEfyuDexsnAanNcegcNx13J3jjM@tun.testsprite.com:8080"
+}
