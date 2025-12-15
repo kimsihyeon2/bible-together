@@ -63,7 +63,7 @@ export function NotificationManager() {
                 method: "POST",
                 body: JSON.stringify({
                     subscription,
-                    userId: me.id, // Linked to current user
+                    userId: me?.id, // Linked to current user
                 }),
                 headers: {
                     "Content-Type": "application/json",

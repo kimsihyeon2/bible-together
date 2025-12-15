@@ -10,7 +10,7 @@ export function Header() {
     const { me, setMe, theme, setTheme } = useBibleStore();
     const router = useRouter();
 
-    const isPastor = me.role === "PASTOR";
+    const isPastor = me?.role === "PASTOR";
 
     // Apply theme on mount and when theme changes
     useEffect(() => {
@@ -47,7 +47,7 @@ export function Header() {
                 <div className="flex flex-1 items-center justify-end space-x-1 sm:space-x-2">
                     {/* User Info - hide on very small screens */}
                     <div className="text-sm text-muted-foreground hidden md:block">
-                        {me.name} <span className="text-xs opacity-70">({isPastor ? "Pastor" : "Member"})</span>
+                        {me?.name} <span className="text-xs opacity-70">({isPastor ? "Pastor" : "Member"})</span>
                     </div>
 
                     {/* Theme Toggle Button */}
