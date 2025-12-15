@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Progress - Bible Together</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "ios-green": "#34C759","ios-blue": "#007AFF",
+                        "ios-orange": "#FF9500",
+                        "ios-bg-light": "#F2F2F7","ios-bg-dark": "#000000",
+                        "ios-card-light": "#FFFFFF",
+                        "ios-card-dark": "#1C1C1E",
+                        "primary": "#34C759", // Mapping to iOS Green for consistency
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'ios': '0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',
+                        'ios-lg': '0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.02)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-ios-bg-light dark:bg-ios-bg-dark text-slate-900 dark:text-white antialiased transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-ios-bg-light dark:bg-ios-bg-dark pb-28 overflow-x-hidden">
+<div class="flex items-center justify-between px-4 py-2 sticky top-0 z-30 bg-ios-bg-light/80 dark:bg-ios-bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/10">
+<button class="flex items-center gap-1 text-ios-blue active:opacity-60 transition-opacity">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+<span class="text-[17px] leading-none -ml-1">Back</span>
+</button>
+<span class="text-[17px] font-semibold text-center opacity-0 transition-opacity duration-300">My Progress</span>
+<button class="flex items-center justify-center text-ios-blue active:opacity-60 transition-opacity">
+<span class="material-symbols-outlined text-xl">ios_share</span>
+</button>
+</div>
+<div class="flex flex-col gap-5 px-4 pt-2">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<h1 class="text-[34px] font-bold tracking-tight leading-tight text-gray-900 dark:text-white">Summary</h1>
+<div class="h-10 w-10 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBkdTVQcngKDKcA1p-ICJMTea76mb-sKhaAZ3XYh7m3zHkvKWcK6iD9i4yR8L3Ami7LVnscnplzTS28C1a_ipqo6kanzNafqVrfnGBC63GNJLOawsc0uxuJM5s61h-KYsSdexS0cdHciapmBdKEuLAitaFFK0fmC8E3FBe5nikth7EQdkIvOdYcMYQzXu0zCl7BrkDOYPuWZCSENcIrUJy959k1sVNJN2u5kLuJ8PjzNg7w8_KBC1DOU3YmSWCYTbqReW8AOM5K4ZXO");'></div>
+</div>
+<div class="flex items-center gap-3 bg-white dark:bg-ios-card-dark p-3 rounded-2xl shadow-ios">
+<div class="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-full text-ios-orange">
+<span class="material-symbols-outlined filled">local_fire_department</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Current Streak</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">You're on a 12 day streak!</p>
+</div>
+</div>
+</div>
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[24px] p-6 shadow-ios flex flex-col items-center justify-center relative overflow-hidden group active:scale-[0.99] transition-transform duration-200 ease-out">
+<div class="flex justify-between w-full mb-4 items-center">
+<h2 class="text-lg font-semibold text-gray-900 dark:text-white">Completion</h2>
+<span class="text-sm font-medium text-gray-400">Total</span>
+</div>
+<div class="relative size-48">
+<svg class="size-full -rotate-90" viewBox="0 0 100 100">
+<circle class="text-gray-100 dark:text-gray-800" cx="50" cy="50" fill="none" r="42" stroke="currentColor" stroke-linecap="round" stroke-width="8"></circle>
+<defs>
+<linearGradient id="gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#34C759"></stop>
+<stop offset="100%" stop-color="#32ADE6"></stop>
+</linearGradient>
+</defs>
+<circle class="drop-shadow-[0_0_4px_rgba(52,199,89,0.3)]" cx="50" cy="50" fill="none" r="42" stroke="url(#gradient)" stroke-dasharray="263.8" stroke-dashoffset="153" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold tracking-tighter text-gray-900 dark:text-white">42<span class="text-xl align-top text-gray-400">%</span></span>
+</div>
+</div>
+<p class="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center px-4 font-medium">Keep it up! You're nearly halfway.</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[20px] p-4 shadow-ios flex flex-col justify-between h-36 active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-start justify-between">
+<div class="bg-blue-100 dark:bg-blue-500/20 p-2 rounded-full text-ios-blue">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+</div>
+<div>
+<span class="text-3xl font-bold block text-gray-900 dark:text-white">14<span class="text-lg text-gray-400 font-medium ml-0.5">h</span></span>
+<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-1 block">Time Read</span>
+</div>
+</div>
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[20px] p-4 shadow-ios flex flex-col justify-between h-36 active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-center gap-2 mb-1">
+<div class="bg-purple-100 dark:bg-purple-500/20 p-2 rounded-full text-purple-500">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 mt-1">
+<div>
+<span class="text-xl font-bold block leading-none text-gray-900 dark:text-white">342</span>
+<span class="text-[10px] text-gray-400 font-semibold uppercase tracking-wide">Chapters</span>
+</div>
+<div class="w-full h-px bg-gray-100 dark:bg-gray-700/50"></div>
+<div>
+<span class="text-xl font-bold block leading-none text-gray-900 dark:text-white">856</span>
+<span class="text-[10px] text-gray-400 font-semibold uppercase tracking-wide">Verses</span>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white px-1 mt-2">Up Next</h3>
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[24px] p-4 shadow-ios flex gap-4 items-center relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="h-20 w-20 shrink-0 rounded-[16px] bg-cover bg-center shadow-sm z-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMWjgYlJFg08zod-j93L4lOCoQNJo1v5I3qKMfchpCGaQFRX7OAWwa8-974gL1LWUiMFunLpW-DTNgv2kMKlMPJ8mjLs7KxDNDhVr1kkcIANkZSxw3fdtzFsE3SR8y5i3zyfCHsBjcCiLCezY_4LmCtQfKoWKTsZaVFD6fPj2V8RrdWxXnDXR9tvo0Lr24S8E5sdM3TZwc5KypEB8Pyfmu4Ip8Kdbp4fqMAqwKoPuI_BCF8utk0NSzc993XdpDxaYA23Tqhouahvy7");'></div>
+<div class="flex flex-col flex-1 min-w-0 z-10">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-base font-bold text-gray-900 dark:text-white truncate">Psalms 23</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Continue Reading</p>
+</div>
+<button class="size-8 rounded-full bg-ios-bg-light dark:bg-gray-700 flex items-center justify-center text-primary shadow-sm active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-xl filled" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="mt-auto">
+<div class="h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-3/4 shadow-[0_0_8px_rgba(52,199,89,0.5)]"></div>
+</div>
+<div class="flex justify-end text-[10px] font-semibold text-gray-400 mt-1">
+<span>75%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[24px] p-5 shadow-ios mt-2">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Activity</h3>
+<span class="text-xs font-semibold text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md">Last 7 Days</span>
+</div>
+<div class="flex items-end justify-between h-32 gap-3">
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 40%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">M</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 65%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 30%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">W</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary rounded-full shadow-[0_0_10px_rgba(52,199,89,0.3)]" style="height: 85%;"></div>
+</div>
+<span class="text-[10px] font-bold text-gray-900 dark:text-white">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 50%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">F</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 20%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">S</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40 group-hover:bg-primary/60 transition-colors rounded-full" style="height: 95%;"></div>
+</div>
+<span class="text-[10px] font-semibold text-gray-400">S</span>
+</div>
+</div>
+</div>
+<div class="bg-ios-card-light dark:bg-ios-card-dark rounded-[24px] p-5 shadow-ios mb-4 mt-2">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Awards</h3>
+<a class="text-ios-blue text-sm font-semibold active:opacity-60" href="#">See All</a>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-1 -mx-2 px-2">
+<div class="flex flex-col items-center gap-2 min-w-[76px] group cursor-pointer">
+<div class="size-[68px] rounded-full bg-gradient-to-b from-yellow-300 to-yellow-600 shadow-sm border border-yellow-200/50 flex items-center justify-center relative overflow-hidden group-active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-white/10 rounded-full rotate-45 transform translate-y-1/2"></div>
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md">wb_sunny</span>
+</div>
+<span class="text-[10px] font-semibold text-center leading-tight line-clamp-2 w-full text-gray-600 dark:text-gray-300">Early Riser</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[76px] group cursor-pointer">
+<div class="size-[68px] rounded-full bg-gradient-to-b from-green-400 to-green-700 shadow-sm border border-green-200/50 flex items-center justify-center relative overflow-hidden group-active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-white/10 rounded-full rotate-45 transform translate-y-1/2"></div>
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md">auto_stories</span>
+</div>
+<span class="text-[10px] font-semibold text-center leading-tight line-clamp-2 w-full text-gray-600 dark:text-gray-300">Gospel Reader</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[76px] group cursor-pointer">
+<div class="size-[68px] rounded-full bg-gradient-to-b from-blue-300 to-blue-600 shadow-sm border border-blue-200/50 flex items-center justify-center relative overflow-hidden group-active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-white/10 rounded-full rotate-45 transform translate-y-1/2"></div>
+<span class="material-symbols-outlined text-white text-3xl drop-shadow-md">diversity_3</span>
+</div>
+<span class="text-[10px] font-semibold text-center leading-tight line-clamp-2 w-full text-gray-600 dark:text-gray-300">Community</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[76px] opacity-40 grayscale">
+<div class="size-[68px] rounded-full bg-gray-200 dark:bg-gray-700 border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400 text-2xl">lock</span>
+</div>
+<span class="text-[10px] font-semibold text-center leading-tight line-clamp-2 w-full text-gray-500">365 Streak</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-ios-bg-light/90 dark:bg-ios-card-dark/90 backdrop-blur-xl border-t border-gray-300/50 dark:border-gray-800 pb-safe pt-2 px-6 flex justify-around items-end h-[84px] z-50">
+<div class="flex flex-col items-center gap-1 w-12 text-gray-400 hover:text-primary cursor-pointer pb-2 transition-colors">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12 text-gray-400 hover:text-primary cursor-pointer pb-2 transition-colors">
+<span class="material-symbols-outlined text-[26px]">book_2</span>
+<span class="text-[10px] font-medium">Read</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12 text-primary cursor-pointer pb-2 transition-colors">
+<span class="material-symbols-outlined filled text-[26px]" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<span class="text-[10px] font-bold">Progress</span>
+</div>
+<div class="flex flex-col items-center gap-1 w-12 text-gray-400 hover:text-primary cursor-pointer pb-2 transition-colors">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+</div>
+<style>
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+</style>
+
+</body></html>

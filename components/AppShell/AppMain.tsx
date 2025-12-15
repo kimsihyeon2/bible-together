@@ -1,29 +1,31 @@
 "use client";
 
-import { AppShell, Burger, Group, Text, UnstyledButton, useMantineColorScheme, ActionIcon, Container, Button, Menu } from "@mantine/core";
+import { AppShell, Container, ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconHome, IconBook, IconUser, IconSun, IconMoon, IconFriends, IconLogout } from "@tabler/icons-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useBibleStore } from "@/store/use-bible-store";
 import { useEffect, useState } from "react";
 import { NotificationBell } from "@/components/NotificationBell";
+import { IconSun, IconMoon, IconLogout } from "@tabler/icons-react";
 
 export function AppMain({ children }: { children: React.ReactNode }) {
-    const [opened, { toggle }] = useDisclosure();
     const pathname = usePathname();
     const router = useRouter();
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const { me, logout } = useBibleStore();
     const [activeTab, setActiveTab] = useState("home");
 
-    // Determine active tab based on path
     useEffect(() => {
         if (pathname?.startsWith("/cells") && pathname.length > 7) {
             setActiveTab("reading");
         } else if (pathname === "/cells") {
             setActiveTab("home");
+        } else if (pathname === "/leader") {
+            setActiveTab("leader");
         } else if (pathname === "/admin") {
             setActiveTab("admin");
+        } else if (pathname === "/progress") {
+            setActiveTab("progress");
         }
     }, [pathname]);
 
@@ -33,79 +35,87 @@ export function AppMain({ children }: { children: React.ReactNode }) {
     };
 
     const navItems = [
-        { label: "홈", icon: IconHome, id: "home", path: "/cells" },
-        { label: "셀 관리", icon: IconFriends, id: "leader", path: "/leader", show: me?.role === "LEADER" || me?.role === "PASTOR" },
-        { label: "관리자", icon: IconUser, id: "admin", path: "/admin", show: me?.role === "PASTOR" },
+        { label: "홈", icon: "home", id: "home", path: "/cells" },
+        { label: "진행", icon: "bar_chart", id: "progress", path: "/progress", show: true },
+        { label: "셀", icon: "groups", id: "leader", path: "/leader", show: me?.role === "LEADER" || me?.role === "PASTOR" },
+        { label: "관리", icon: "shield_person", id: "admin", path: "/admin", show: me?.role === "PASTOR" },
     ];
 
     return (
-        <AppShell
-            header={{ height: 60 }}
-            navbar={{
-                width: 300,
-                breakpoint: "sm",
-                collapsed: { mobile: !opened, desktop: true }, // Sidebar hidden on desktop too for mobile-first feel? Or show it? Let's hide for now to focus on bottom nav feel.
-            }}
-            padding="md"
-        >
-            <AppShell.Header>
-                <Group h="100%" px="md" justify="space-between">
-                    <Group>
-                        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                        <Text fw={700} size="lg" variant="gradient" gradient={{ from: 'blue', to: 'cyan', deg: 90 }}>
+        <div className="relative min-h-screen w-full bg-[#F2F2F7] dark:bg-black transition-colors">
+            {/* Header */}
+            <header className="sticky top-0 z-40 glass-nav border-b border-black/5 dark:border-white/10">
+                <div className="flex items-center justify-between px-5 py-3">
+                    <div className="flex flex-col">
+                        {me && (
+                            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#34C759]">
+                                {me.role === "PASTOR" ? "담임목사" : me.role === "LEADER" ? "셀 리더" : "셀원"}
+                            </span>
+                        )}
+                        <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                             Bible Together
-                        </Text>
-                    </Group>
-                    <Group gap="xs">
+                        </h1>
+                    </div>
+                    <div className="flex items-center gap-3">
                         {me && (
                             <>
-                                <Text size="sm" c="dimmed" visibleFrom="sm">{me.name}님</Text>
+                                <span className="text-sm font-medium text-slate-500 dark:text-slate-400 hidden sm:block">
+                                    {me.name}님
+                                </span>
                                 <NotificationBell />
-                                <ActionIcon onClick={handleLogout} variant="light" size="lg" radius="xl" color="red" title="로그아웃">
-                                    <IconLogout size={18} />
-                                </ActionIcon>
+                                <button
+                                    onClick={handleLogout}
+                                    className="relative rounded-full p-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-red-500"
+                                >
+                                    <IconLogout size={22} />
+                                </button>
                             </>
                         )}
-                        <ActionIcon onClick={() => toggleColorScheme()} variant="default" size="lg" radius="xl">
-                            <IconSun size={18} className="light-hidden" />
-                            <IconMoon size={18} className="dark-hidden" />
-                        </ActionIcon>
-                    </Group>
-                </Group>
-            </AppShell.Header>
+                        <button
+                            onClick={() => toggleColorScheme()}
+                            className="relative rounded-full p-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-900 dark:text-white"
+                        >
+                            {colorScheme === "dark" ? <IconSun size={22} /> : <IconMoon size={22} />}
+                        </button>
+                    </div>
+                </div>
+            </header>
 
-            <AppShell.Navbar p="md">
-                {/* Mobile Drawer Content */}
-                <Text>Menu</Text>
-            </AppShell.Navbar>
-
-            <AppShell.Main pb={80}> {/* Padding bottom for fixed footer */}
-                <Container size="sm" p={0}>
+            {/* Main Content */}
+            <main className="pb-28">
+                <Container size="sm" p="md">
                     {children}
                 </Container>
-            </AppShell.Main>
+            </main>
 
-            {/* Bottom Navigation (Mobile First) */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 h-[65px] z-50 flex justify-around items-center px-2 pb-safe">
-                {navItems.filter(i => i.show !== false).map((item) => (
-                    <UnstyledButton
-                        key={item.id}
-                        onClick={() => {
-                            setActiveTab(item.id);
-                            router.push(item.path);
-                        }}
-                        className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${activeTab === item.id
-                            ? "text-blue-600 dark:text-blue-400"
-                            : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-                            }`}
-                    >
-                        <item.icon size={22} stroke={activeTab === item.id ? 2.5 : 1.5} />
-                        <Text size="xs" fw={activeTab === item.id ? 700 : 500}>
-                            {item.label}
-                        </Text>
-                    </UnstyledButton>
-                ))}
-            </div>
-        </AppShell>
+            {/* Bottom Navigation - iOS Style */}
+            <nav className="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-black/5 dark:border-white/10 pb-safe">
+                <div className="flex items-center justify-around pt-2 pb-1">
+                    {navItems.filter(i => i.show !== false).map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => {
+                                setActiveTab(item.id);
+                                router.push(item.path);
+                            }}
+                            className={`flex flex-col items-center gap-1 p-2 w-16 transition-colors ${activeTab === item.id
+                                    ? "text-[#34C759]"
+                                    : "text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                                }`}
+                        >
+                            <span
+                                className="material-symbols-outlined text-[26px]"
+                                style={{ fontVariationSettings: activeTab === item.id ? "'FILL' 1" : "'FILL' 0" }}
+                            >
+                                {item.icon}
+                            </span>
+                            <span className={`text-[10px] ${activeTab === item.id ? "font-semibold" : "font-medium"}`}>
+                                {item.label}
+                            </span>
+                        </button>
+                    ))}
+                </div>
+            </nav>
+        </div>
     );
 }

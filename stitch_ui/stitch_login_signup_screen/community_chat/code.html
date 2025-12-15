@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Chat</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#34C759", // Apple-style Green
+                        "primary-dark": "#248A3D",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#000000",
+                        "surface-light": "#F2F2F7", // iOS System Gray 6
+                        "surface-dark": "#1C1C1E",
+                        "bubble-rec-light": "#E9E9EB", // iOS Received Bubble Light
+                        "bubble-rec-dark": "#262626", // iOS Received Bubble Dark
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "bubble": "1.25rem",
+                    },
+                    boxShadow: {
+                        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }html { scroll-behavior: smooth; }@keyframes messagePop {
+            0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-pop {
+            animation: messagePop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-sans h-[100dvh] flex flex-col overflow-hidden text-gray-900 dark:text-white antialiased selection:bg-primary/30">
+<header class="flex-none bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 pt-12 pb-2 px-2 flex items-center justify-between sticky top-0 z-40">
+<button class="flex items-center text-primary px-2 py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[26px]">chevron_left</span>
+<span class="text-[17px] font-normal leading-none pb-0.5 -ml-1">Back</span>
+</button>
+<div class="flex flex-col items-center justify-center -ml-4">
+<h2 class="text-[15px] font-semibold text-gray-900 dark:text-white tracking-tight">Cell Group A</h2>
+<span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium">Psalm 23</span>
+</div>
+<button class="flex items-center justify-center size-9 rounded-full text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[22px]">info</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-1 scroll-smooth bg-white dark:bg-background-dark">
+<div class="flex w-full justify-center py-6">
+<span class="text-gray-400 dark:text-gray-500 text-[11px] font-medium tracking-wide">Today 10:28 AM</span>
+</div>
+<div class="flex items-end gap-2 mb-3 group animate-pop" style="animation-delay: 0.1s; opacity: 0;">
+<div class="size-[30px] rounded-full bg-gray-200 bg-cover bg-center shrink-0 mb-0.5 shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB42cHXA047zAY3EUPcW2GJVvEzHBYekcLVDyvmvw7ZnIm08Qp1R4_k9qkcpdFhsVaZ0zX9SF5cXIiBwegTdkmzHzgrflYIsyGmpoRHfzO-xcxyVRGOeFyx8AcbDr37WHNcatugZkjDPBUeraXU536ISnGXp8Sk4LEdk-KQKt5EJKaWSF5BZJSgpVpnL4SZp4ku06Zd6BfAGUE3xtkUGZ9o3NhgC4P9kjG_iC1lHoXzJvR1oEFunUBuu4KJ3xwsIFUkjUB9hTHiPDLG");'></div>
+<div class="flex flex-col gap-1 max-w-[75%] items-start">
+<span class="text-[11px] text-gray-400 dark:text-gray-500 ml-3 hidden group-hover:block transition-all">Sarah</span>
+<div class="px-4 py-2 bg-bubble-rec-light dark:bg-bubble-rec-dark rounded-bubble rounded-bl-[4px] text-[16px] text-gray-900 dark:text-white leading-[1.35] tracking-tight">
+                Did anyone else struggle with verse 4 today?
+            </div>
+</div>
+</div>
+<div class="flex items-end gap-2 mb-3 group animate-pop" style="animation-delay: 0.2s; opacity: 0;">
+<div class="size-[30px] rounded-full bg-gray-200 bg-cover bg-center shrink-0 mb-0.5 shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAXwRZyDe7skClsV3SHYl6yPetrlN61clxjSku7cD7pGZNsWxjdYQ_GQ3928bggknU1G8AotCPLYtthWFfTJr2_n0yySyG40pBZ695YYPbzPK9IQhveMDYhvBIEuXvBV1NxkMToeiHoyFpwPZ3zt0X9lQYtnN_DR_QEW1sSdo_9aWQx5ZNpcQm1F8-m-xmrtePerv03bhwaFq1DmxBNyxOR9f2ktdQJhzH9_wI_QB3PBJnQdSF0Eo3TYEuFfavA0Ds0q8G-YHvK5hGF");'></div>
+<div class="flex flex-col gap-1 max-w-[75%] items-start">
+<span class="text-[11px] text-gray-400 dark:text-gray-500 ml-3 hidden group-hover:block transition-all">David</span>
+<div class="px-4 py-2 bg-bubble-rec-light dark:bg-bubble-rec-dark rounded-bubble rounded-bl-[4px] text-[16px] text-gray-900 dark:text-white leading-[1.35] tracking-tight">
+                I think it refers to comfort in difficult times. It felt really relatable.
+            </div>
+</div>
+</div>
+<div class="flex items-end gap-2 mb-6 group animate-pop" style="animation-delay: 0.3s; opacity: 0;">
+<div class="size-[30px] rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center shrink-0 mb-0.5 border border-gray-100 dark:border-gray-700 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+</div>
+<div class="flex flex-col gap-1 max-w-[85%] items-start">
+<span class="text-[11px] font-semibold text-gray-400 dark:text-gray-500 ml-3">BibleBot</span>
+<div class="overflow-hidden rounded-xl bg-surface-light dark:bg-bubble-rec-dark border border-gray-200/50 dark:border-gray-700/50 shadow-sm w-full">
+<div class="p-3 relative flex gap-3">
+<div class="shrink-0 w-1 rounded-full bg-primary my-1"></div>
+<p class="text-[15px] italic text-gray-600 dark:text-gray-300 leading-relaxed font-serif py-1">
+                        "Even though I walk through the darkest valley, I will fear no evil, for you are with me..."
+                    </p>
+</div>
+<div class="bg-white/50 dark:bg-white/5 px-3 py-2.5 flex items-center justify-between border-t border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
+<div class="flex flex-col">
+<span class="text-[13px] font-bold text-gray-900 dark:text-white">Psalm 23:4</span>
+<span class="text-[10px] text-gray-500">New International Version</span>
+</div>
+<button class="size-7 rounded-full bg-white dark:bg-gray-600 shadow-sm flex items-center justify-center text-primary hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 mb-2 animate-pop" style="animation-delay: 0.4s; opacity: 0;">
+<div class="flex items-end gap-2 max-w-[75%] flex-row-reverse">
+<div class="px-4 py-2 bg-primary text-white rounded-bubble rounded-br-[4px] text-[16px] leading-[1.35] tracking-tight shadow-subtle">
+                That's a great insight, thanks for sharing! 🙏
+            </div>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-gray-400 font-medium">Delivered</span>
+</div>
+</div>
+<div class="h-6"></div>
+</main>
+<footer class="flex-none bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800 p-2 pb-8 z-40">
+<div class="flex items-end gap-2 max-w-4xl mx-auto w-full px-1">
+<button class="shrink-0 size-9 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-300 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors mb-[3px] active:scale-95">
+<span class="material-symbols-outlined text-[22px]">add</span>
+</button>
+<button class="shrink-0 size-9 rounded-full bg-transparent text-gray-400 dark:text-gray-500 flex items-center justify-center hover:text-primary dark:hover:text-primary transition-colors mb-[3px] active:scale-95">
+<span class="material-symbols-outlined text-[24px] filled" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+</button>
+<div class="flex-1 min-h-[38px] border border-gray-300 dark:border-gray-700 rounded-full px-4 py-1.5 bg-white dark:bg-background-dark focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20 transition-all flex items-center shadow-sm">
+<input class="w-full bg-transparent border-none p-0 text-[16px] text-gray-900 dark:text-white placeholder-gray-400 focus:ring-0 leading-normal" placeholder="Message" type="text"/>
+</div>
+<button class="shrink-0 size-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-all shadow-md mb-[4px] active:scale-90">
+<span class="material-symbols-outlined text-[18px] font-bold">arrow_upward</span>
+</button>
+</div>
+</footer>
+
+</body></html>

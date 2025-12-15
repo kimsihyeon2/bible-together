@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Community Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "ios-green": "#34C759",
+                    "ios-blue": "#007AFF",
+                    "ios-background-light": "#F2F2F7",
+                    "ios-background-dark": "#000000",
+                    "ios-surface-light": "#FFFFFF",
+                    "ios-surface-dark": "#1C1C1E",
+                    "ios-separator-light": "#C6C6C8",
+                    "ios-separator-dark": "#38383A",
+                },
+                fontFamily: {
+                    "sans": ["Inter", "sans-serif"],
+                },
+                boxShadow: {
+                    'ios': '0 4px 20px rgba(0, 0, 0, 0.05)',
+                    'ios-lg': '0 10px 30px rgba(0, 0, 0, 0.08)',
+                }
+            },
+        },
+    }
+</script>
+<style>.scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    body {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    .dark .glass-nav {
+        background: rgba(28, 28, 30, 0.85);
+    }
+    .safe-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-ios-background-light dark:bg-ios-background-dark font-sans text-slate-900 dark:text-white antialiased selection:bg-ios-green/30">
+<div class="relative min-h-screen w-full pb-32">
+<header class="sticky top-0 z-40 glass-nav border-b border-black/5 dark:border-white/10 transition-all duration-300">
+<div class="flex items-center justify-between px-5 py-3">
+<div class="flex flex-col">
+<span class="text-[11px] font-semibold uppercase tracking-widest text-ios-green">Downtown Cell</span>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Community</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="relative rounded-full p-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-slate-900 dark:text-white">notifications</span>
+<span class="absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-red-500 border-2 border-white dark:border-black"></span>
+</button>
+<button class="h-9 w-9 overflow-hidden rounded-full border border-black/10 dark:border-white/10">
+<img alt="User Profile" class="h-full w-full object-cover bg-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHPcHGBqs2PA_hkmk6LOvxQWjHoBksA4O7FUv_p9aD7Odpm28PvbcOVuOmUqHof5O-8oVxRUx2-PIOmvWQG2YHJeJOtfMRPcA6z6y3wJsbEF7f7Bws07PiM5tIGq-1ZKp9QjJ7_v_v8bqwDE6ghHM75pwYOu7Tg4CwnPNodUTRFeovGYOkYj45CkRI76ivDf_xnspxJqgHcrKmAcGEAGkBez3bnSev9WiS9D02ooojb7JM1FO__hQ0etX7feMTwSijNHG_xEA7TpGC"/>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-col gap-6 pt-4">
+<div class="px-5">
+<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Good Morning,<br/>Alex</h2>
+<p class="mt-2 text-[15px] font-medium text-slate-500 dark:text-slate-400">Ready to continue your journey?</p>
+</div>
+<div class="px-5">
+<div class="group relative overflow-hidden rounded-[2rem] bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios-lg transition-transform active:scale-[0.98]">
+<div class="relative h-64 w-full">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="Bible Reading" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhaAG7JcTa9y5nZnzx1OnXSG5QbZmcLRgWlRD88LEa92wmYpjJfaDEE1l7nby1PTFJRHONuQs6S5KpCN8sf9cCvXYc-T4RfJdp1MJgk64YM18YaOln1u-xVYom1Qm0SpRnJuxqWu-YMaOuTQ-Mzv8FQCCKbbKLq3kEVuVzy8ZTFjJNgbozP9sXJ4rcW1y5hbbfEAJX3yDUIbSCQ8k8b8PF7kE8HVCbRasfCJy6M151kxy1bKuZ8Aw1WgmMVVb6CNasOoONBGWu3A9R"/>
+<div class="absolute top-4 left-4 z-20">
+<div class="flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 backdrop-blur-md border border-white/20">
+<span class="h-2 w-2 rounded-full bg-ios-green animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white">Today's Reading</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+<div class="flex items-end justify-between gap-4">
+<div>
+<h3 class="text-3xl font-bold text-white tracking-tight">Romans 8</h3>
+<p class="mt-1 text-sm font-medium text-white/90">Day 14 • Walking with Jesus</p>
+</div>
+<button class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined font-bold">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-5 grid grid-cols-2 gap-4">
+<div class="rounded-3xl bg-ios-surface-light dark:bg-ios-surface-dark p-5 shadow-ios flex flex-col justify-between h-40 relative overflow-hidden">
+<div class="flex flex-col z-10">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Goal</span>
+<span class="text-2xl font-bold text-slate-900 dark:text-white mt-1">75%</span>
+<span class="text-xs text-slate-400 dark:text-slate-500 mt-1">Group Progress</span>
+</div>
+<div class="absolute -bottom-4 -right-4 h-24 w-24">
+<svg class="h-full w-full -rotate-90" viewBox="0 0 36 36">
+<path class="text-slate-100 dark:text-slate-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-ios-green drop-shadow-[0_0_8px_rgba(52,199,89,0.4)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<div class="rounded-3xl bg-ios-surface-light dark:bg-ios-surface-dark p-5 shadow-ios flex flex-col justify-between h-40">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Streak</span>
+<span class="text-2xl font-bold text-slate-900 dark:text-white mt-1">12 Days</span>
+<span class="text-xs text-slate-400 dark:text-slate-500 mt-1">Personal Best!</span>
+</div>
+<div class="flex items-center gap-1 mt-auto">
+<div class="h-8 w-8 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-orange-500 text-lg">local_fire_department</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="px-5 flex items-center justify-between">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Active Plans</h3>
+<a class="text-sm font-medium text-ios-green hover:text-green-500 transition-colors" href="#">See All</a>
+</div>
+<div class="flex overflow-x-auto px-5 pb-6 gap-4 scrollbar-hide snap-x snap-mandatory">
+<div class="snap-center shrink-0 w-44 flex flex-col gap-2 group">
+<div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+<img alt="Gospel of John" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDiAJX-noX8UkcUN-2usakDWCkjNj22pmX0qZyoYjk9rzM3ceb1DrvprGadeag7KDxwim4j2NXZyvbji7sh_i1A9Y5Rosnds_G6rcNEgs6fgKKqhqBYy45rL4fax1V3RzNLWCzU-xFsSelcyvCOv_gRhWk1GELwmrfiWC7ifVA8pO3DV0fxNKmLzhhm_expzaLjG97JbA3BMing-VQiPvGRyfgMWoMp8XyoR0ayTjCeGgNN_pQAD2N5S4099Rm40alDQuY0prDG00N"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3">
+<div class="h-1 w-full bg-white/30 rounded-full overflow-hidden backdrop-blur-sm">
+<div class="h-full w-1/3 bg-ios-green rounded-full"></div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-slate-900 dark:text-white leading-tight">Gospel of John</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">21 Days Left</p>
+</div>
+</div>
+<div class="snap-center shrink-0 w-44 flex flex-col gap-2 group">
+<div class="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-md">
+<img alt="Psalms" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdNEl9d2mVTefzg1Ot_Cz58kb737BNU3x2lFwfYurvDXQ2-QbCWXyNdMzA6YkjlRWpmFV1glw6w4VETawGmiK23hgbaPqNtBtIkzsk-M-NinzUVBMFEkD6X2YXM2ql4Y-BKTCrJID1bnmNGP-x4L0kEgJ7n6ux5B7mhIJFy1KBdWQwnUt8-kiUq7P2rentD0WpqQIvSSdZ0csv7u_Cun1woT24fG26l3bRbiNRcch2XPfnV_6CiD4L7xshe7W8iUNp_L2ZzCcDt9oJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 right-3">
+<div class="h-1 w-full bg-white/30 rounded-full overflow-hidden backdrop-blur-sm">
+<div class="h-full w-2/3 bg-ios-green rounded-full"></div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-slate-900 dark:text-white leading-tight">Psalms in 30 Days</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">12 Days Left</p>
+</div>
+</div>
+<div class="snap-center shrink-0 w-44 flex flex-col gap-2">
+<button class="w-full aspect-[3/4] rounded-2xl border-2 border-dashed border-slate-300 dark:border-white/10 flex flex-col items-center justify-center gap-3 bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
+<div class="h-12 w-12 rounded-full bg-ios-green/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-ios-green text-2xl">add</span>
+</div>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">Find Plan</span>
+</button>
+<div>
+<h4 class="font-semibold text-transparent select-none">Placeholder</h4>
+<p class="text-xs text-transparent mt-0.5 select-none">Hidden</p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-5">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Actions</h3>
+<div class="grid grid-cols-4 gap-3">
+<button class="flex flex-col items-center gap-2 group">
+<div class="h-16 w-16 rounded-2xl bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios flex items-center justify-center transition-transform group-active:scale-95 group-hover:bg-slate-50 dark:group-hover:bg-white/5">
+<span class="material-symbols-outlined text-pink-500 text-2xl">favorite</span>
+</div>
+<span class="text-[11px] font-medium text-slate-600 dark:text-slate-300">Prayer</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="h-16 w-16 rounded-2xl bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios flex items-center justify-center transition-transform group-active:scale-95 group-hover:bg-slate-50 dark:group-hover:bg-white/5">
+<span class="material-symbols-outlined text-indigo-500 text-2xl">forum</span>
+</div>
+<span class="text-[11px] font-medium text-slate-600 dark:text-slate-300">Chat</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="h-16 w-16 rounded-2xl bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios flex items-center justify-center transition-transform group-active:scale-95 group-hover:bg-slate-50 dark:group-hover:bg-white/5">
+<span class="material-symbols-outlined text-orange-500 text-2xl">calendar_month</span>
+</div>
+<span class="text-[11px] font-medium text-slate-600 dark:text-slate-300">Calendar</span>
+</button>
+<button class="flex flex-col items-center gap-2 group">
+<div class="h-16 w-16 rounded-2xl bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios flex items-center justify-center transition-transform group-active:scale-95 group-hover:bg-slate-50 dark:group-hover:bg-white/5">
+<span class="material-symbols-outlined text-slate-500 text-2xl">settings</span>
+</div>
+<span class="text-[11px] font-medium text-slate-600 dark:text-slate-300">Settings</span>
+</button>
+</div>
+</div>
+<div class="px-5 mb-10">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Latest Activity</h3>
+<div class="rounded-2xl bg-ios-surface-light dark:bg-ios-surface-dark shadow-ios overflow-hidden">
+<div class="flex items-start gap-3 p-4 border-b border-ios-separator-light dark:border-ios-separator-dark/50 last:border-0">
+<div class="h-10 w-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center text-yellow-700 dark:text-yellow-500 font-bold text-sm shrink-0">SC</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Sarah Chen</p>
+<span class="text-[11px] text-slate-400">2h</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 truncate">Finished <span class="text-ios-green">Day 12</span> of Gospel of John</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4 last:border-0">
+<div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-700 dark:text-blue-500 font-bold text-sm shrink-0">DJ</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<p class="text-sm font-semibold text-slate-900 dark:text-white">David Jones</p>
+<span class="text-[11px] text-slate-400">4h</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">"This verse really spoke to me about trusting the process. We often forget..."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 glass-nav border-t border-black/5 dark:border-white/10 safe-bottom">
+<div class="flex items-center justify-around pt-2 pb-1">
+<button class="flex flex-col items-center gap-1 p-2 w-16 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 w-16 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[26px]">menu_book</span>
+<span class="text-[10px] font-medium">Bible</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 w-16 text-ios-green">
+<span class="material-symbols-outlined text-[26px] font-variation-settings-fill-1">groups</span>
+<span class="text-[10px] font-semibold">Community</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 w-16 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+</div>
+<style>
+    .font-variation-settings-fill-1 {
+      font-variation-settings: 'FILL' 1;
+    }
+</style>
+
+</body></html>
