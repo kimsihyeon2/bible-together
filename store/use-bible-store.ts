@@ -7,7 +7,7 @@ interface BibleState {
     me: User | null;
     setMe: (user: Partial<User>) => void;
     login: (email: string, password?: string) => Promise<{ success: boolean; message: string }>;
-    signup: (email: string, password: string, name: string, phone?: string) => Promise<{ success: boolean; message: string }>;
+    signup: (email: string, password: string, name: string, phone?: string, cellCode?: string) => Promise<{ success: boolean; message: string }>;
     logout: () => void;
 
     // App State
@@ -192,7 +192,7 @@ export const useBibleStore = create<BibleState>()(
                 return { success: false, message: "DB 연동을 확인해주세요." };
             },
 
-            signup: async (email, password, name, phone) => {
+            signup: async (email, password, name, phone, cellCode) => {
                 try {
                     if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
                         const { supabase } = await import("@/utils/supabase/client");
@@ -214,10 +214,29 @@ export const useBibleStore = create<BibleState>()(
                                 email,
                                 name,
                                 role: "MEMBER" // Default
-                                // phone can be added to profile schema if needed
                             });
 
                             if (profileError) console.error("Profile Create Error", profileError);
+
+                            // Auto-join to selected cell if provided
+                            let myCellIds: string[] = [];
+                            if (cellCode) {
+                                // Find cell by invite code
+                                const { data: cellData } = await supabase
+                                    .from("cells")
+                                    .select("id")
+                                    .eq("invite_code", cellCode)
+                                    .single();
+
+                                if (cellData) {
+                                    // Add to cell_members
+                                    await supabase.from("cell_members").upsert({
+                                        cell_id: cellData.id,
+                                        user_id: data.user.id
+                                    });
+                                    myCellIds = [cellData.id];
+                                }
+                            }
 
                             // Auto Login Set State
                             set({
@@ -226,10 +245,10 @@ export const useBibleStore = create<BibleState>()(
                                     name,
                                     role: "MEMBER",
                                     avatarUrl: undefined,
-                                    myCellIds: []
+                                    myCellIds
                                 }
                             });
-                            return { success: true, message: "회원가입 성공" };
+                            return { success: true, message: "회원가입 성공! 교구에 가입되었습니다." };
                         }
                     }
                 } catch (e: any) {

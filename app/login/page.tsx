@@ -3,12 +3,19 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useBibleStore } from "@/store/use-bible-store";
-import { TextInput, PasswordInput, Button, Paper, Title, Text, Container, Stack, Alert, SegmentedControl } from "@mantine/core";
-import { IconAlertCircle } from "@tabler/icons-react";
+import { TextInput, PasswordInput, Button, Paper, Title, Text, Container, Stack, Alert, SegmentedControl, Select } from "@mantine/core";
+import { IconAlertCircle, IconBuildingChurch } from "@tabler/icons-react";
+
+// 교구 목록 (Supabase cells 테이블과 동기화)
+const CELLS = [
+    { value: "FAITH", label: "믿음 교구" },
+    { value: "HOPE", label: "소망 교구" },
+    { value: "LOVE", label: "레브 교구" },
+];
 
 export default function LoginPage() {
     const [mode, setMode] = useState<"login" | "signup">("login");
-    const [form, setForm] = useState({ email: "", password: "", name: "", phone: "" });
+    const [form, setForm] = useState({ email: "", password: "", name: "", phone: "", cellCode: "" });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
@@ -25,9 +32,13 @@ export default function LoginPage() {
                     setLoading(false);
                     return;
                 }
-                const res = await signup(form.email, form.password, form.name, form.phone);
+                if (!form.cellCode) {
+                    setError("소속 교구를 선택해주세요.");
+                    setLoading(false);
+                    return;
+                }
+                const res = await signup(form.email, form.password, form.name, form.phone, form.cellCode);
                 if (res.success) {
-                    // Auto login or ask to login? Usually auto-login is better for UX
                     router.push("/cells");
                 } else {
                     setError(res.message);
@@ -83,6 +94,15 @@ export default function LoginPage() {
                                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                                         required
                                     />
+                                    <Select
+                                        label="소속 교구"
+                                        placeholder="교구를 선택해주세요"
+                                        leftSection={<IconBuildingChurch size={16} />}
+                                        data={CELLS}
+                                        value={form.cellCode}
+                                        onChange={(val) => setForm({ ...form, cellCode: val || "" })}
+                                        required
+                                    />
                                     <TextInput
                                         label="휴대폰 번호 (선택)"
                                         placeholder="010-1234-5678"
@@ -125,3 +145,4 @@ export default function LoginPage() {
         </Container>
     );
 }
+
