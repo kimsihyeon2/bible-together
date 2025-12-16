@@ -7,10 +7,10 @@
     "projectName": "bible_project",
     "projectPath": "d:/bible_project",
     "testIds": [],
-    "additionalInstruction": "Verify the explicit login and signup flow. Ensure email validation and error handling work correctly.",
+    "additionalInstruction": "Execute all tests based on the plan. Focus on login/signup flows and navigation.",
     "envs": {
       "API_KEY": "sk-user-Vkuxn_PMKV5mW7M8wbHKPOwOg5hO4AlnbnCep0MsrBNBuK-p3_v_X6ocEvlmgmnQyMbhBt8T3ovq-0B2SESJF2K9kf0ISKUVuhcee0ySU6pgrU7aaj7bLdF_W3LlYtMTayY"
     }
   },
-  "proxy": "http://cb95ee63-3545-4014-9a8b-d8fa04021aba:eSAeyVEfyuDexsnAanNcegcNx13J3jjM@tun.testsprite.com:8080"
+  "proxy": "http://834a06e7-2e34-434f-a907-a385fc1d4fb2:p2IPEgU18XcTtAmJbIl6bsOANjnrUvc0@tun.testsprite.com:8080"
 }

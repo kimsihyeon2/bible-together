@@ -2,6 +2,7 @@
     "tech_stack": [
         "TypeScript",
         "Next.js",
+        "Tailwind CSS",
         "Supabase",
         "Zustand",
         "Mantine UI"
@@ -9,26 +10,42 @@
     "features": [
         {
             "name": "Authentication",
-            "description": "User login and signup using Supabase Auth. Includes email/password registration and profile creation.",
+            "description": "Login and Signup functionality with Email/Password and Social Login UI. Handles user sessions and redirects.",
             "files": [
                 "app/login/page.tsx",
                 "store/use-bible-store.ts"
             ]
         },
         {
-            "name": "Cell Management",
-            "description": "View joined cells, join new cells via invite code, and view cell progress.",
+            "name": "Navigation & Layout",
+            "description": "App shell with glassmorphism header and bottom navigation. Adaptive layouts based on user roles (Pastor, Leader, Member).",
             "files": [
-                "app/cells/page.tsx",
-                "store/use-bible-store.ts"
+                "components/AppShell/AppMain.tsx",
+                "app/layout.tsx"
             ]
         },
         {
-            "name": "Bible Reading",
-            "description": "Read Bible verses, toggle underlines, and view today's reading plan.",
+            "name": "Progress Tracking",
+            "description": "Dashboard for viewing reading progress, streaks, weekly activity, and achievements.",
             "files": [
-                "app/cells/[cellId]/page.tsx",
-                "store/use-bible-store.ts"
+                "app/progress/page.tsx"
+            ]
+        },
+        {
+            "name": "Cell Management",
+            "description": "Leader capabilities to manage cell members and view cell details. Admin capabilities for Pastors.",
+            "files": [
+                "app/leader/page.tsx",
+                "app/admin/page.tsx",
+                "app/cells/page.tsx"
+            ]
+        },
+        {
+            "name": "Notifications",
+            "description": "Push notification subscription and bell icon UI.",
+            "files": [
+                "components/NotificationBell.tsx",
+                "components/NotificationManager.tsx"
             ]
         }
     ]

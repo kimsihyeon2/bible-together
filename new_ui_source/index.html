@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bible Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#34C759", // Apple Green
+              "primary-hover": "#30B753",
+              "primary-dark": "#248A3D",
+              
+              "ios-green": "#34C759",
+              "ios-blue": "#007AFF",
+              "ios-orange": "#FF9500",
+              "ios-red": "#FF3B30",
+              "ios-purple": "#AF52DE",
+              "ios-teal": "#30B0C7",
+              
+              "background-light": "#F2F2F7", // iOS System Gray 6
+              "background-dark": "#000000",
+              
+              "surface-light": "#ffffff",
+              "surface-dark": "#1C1C1E",
+              
+              "ios-bg-light": "#F2F2F7",
+              "ios-bg-dark": "#000000",
+              "ios-card-light": "#FFFFFF",
+              "ios-card-dark": "#1C1C1E",
+              
+              "text-main": "#000000",
+              "text-secondary": "#3C3C43",
+              "text-muted": "#8E8E93",
+              
+              "bubble-rec-light": "#E9E9EB",
+              "bubble-rec-dark": "#262626",
+            },
+            fontFamily: {
+              "sans": ["Inter", "sans-serif"],
+              "display": ["Spline Sans", "Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "xl": "12px",
+              "2xl": "20px",
+              "3xl": "24px",
+              "bubble": "1.25rem",
+            },
+            boxShadow: {
+              "soft": "0 8px 40px -12px rgba(0,0,0,0.1)",
+              "card": "0 2px 8px rgba(0,0,0,0.04)",
+              "glow": "0 0 32px rgba(52, 199, 89, 0.25)",
+              "ios": "0 4px 20px rgba(0, 0, 0, 0.05)",
+              "ios-lg": "0 10px 30px rgba(0, 0, 0, 0.08)",
+              "apple": "0 4px 12px rgba(0,0,0,0.05)",
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      }
+      /* Hide Scrollbar */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .dark .glass-nav {
+        background: rgba(28, 28, 30, 0.85);
+      }
+      
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 20px);
+      }
+      
+      .ios-toggle {
+        appearance: none;
+        width: 51px;
+        height: 31px;
+        background: #E9E9EA;
+        border-radius: 999px;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        transition: background 0.2s;
+      }
+      .dark .ios-toggle {
+        background: #39393D;
+      }
+      .ios-toggle::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 27px;
+        height: 27px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06);
+        transition: transform 0.2s;
+      }
+      .ios-toggle:checked {
+        background: #34C759;
+      }
+      .ios-toggle:checked::after {
+        transform: translateX(20px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
